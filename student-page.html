@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vending Machine Products</title>
+  <style>
+    body {
+      min-height: 800px;
+      font-family: Arial, sans-serif;
+      background-color: rgb(43, 159, 226);
+      display: grid;
+      align-self: center;
+     
+    }
+
+    .product-grid {
+      display: grid;
+      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 2px solid #eee;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .product-card .price {
+      font-weight: bold;
+      margin: 10px 0;
+      color: #222;
+    }
+
+    .product-card button {
+      background-color: #1e90ff;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .product-card button:hover {
+      background-color: #0074cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-grid" id="productGrid">
+    <!-- Products will be inserted here by JavaScript -->
+  </div>
+
+  <script>
+    const products = [
+      {
+        name: "Energy Drink",
+        description: "Boost your day with this refreshing drink!",
+        price: 50,
+        image: "img/product1.jpg"
+      },
+      {
+        name: "Chocolate Bar",
+        description: "Sweet delight to satisfy your cravings.",
+        price: 30,
+        image: "img/product2.jpg"
+      },
+      {
+        name: "Chips Pack",
+        description: "Crunchy and salty, perfect snack!",
+        price: 25,
+        image: "img/product3.jpg"
+      },
+       {
+        name: "Chips Pack",
+        description: "Crunchy and salty, perfect snack!",
+        price: 25,
+        image: "img/product3.jpg"
+      },
+       {
+        name: "Chips Pack",
+        description: "Crunchy and salty, perfect snack!",
+        price: 25,
+        image: "img/product3.jpg"
+      },
+       {
+        name: "Chips Pack",
+        description: "Crunchy and salty, perfect snack!",
+        price: 25,
+        image: "img/product3.jpg"
+      },
+         {
+        name: "Chips Pack",
+        description: "Crunchy and salty, perfect snack!",
+        price: 25,
+        image: "img/product3.jpg"
+      },
+         {
+        name: "Chips Pack",
+        description: "Crunchy and salty, perfect snack!",
+        price: 25,
+        image: "img/product3.jpg"
+      },
+         {
+        name: "Chips Pack",
+        description: "Crunchy and salty, perfect snack!",
+        price: 25,
+        image: "img/product3.jpg"
+      },
+         {
+        name: "Chips Pack",
+        description: "Crunchy and salty, perfect snack!",
+        price: 25,
+        image: "img/product3.jpg"
+      },
+      // Add more products here as needed
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <p class="price">Rs${product.price}</p>
+        <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+      `;
+      productGrid.appendChild(card);
+    });
+
+    function addToCart(name, price) {
+      alert(`${name} added to cart for Rs${price}`);
+      // You can expand this function to interact with blockchain/cart system
+    }
+  </script>
+</body>
+</html>
+
